@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PanggilAja</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -21,22 +20,45 @@ body {
   color: #333;
 }
 
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #2b7cff, #00c6ff);
-  color: white;
-  padding: 40px 20px;
+/* HERO */
+.hero {
+  position: relative;
   text-align: center;
-  animation: fadeDown 1s ease;
+  color: white;
 }
 
-header h1 {
+.hero img {
+  width: 100%;
+  height: 30vh; /* RESPONSIVE */
+  object-fit: cover;
+}
+
+/* Overlay gelap */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  top: 0;
+  left: 0;
+}
+
+/* Teks di tengah */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.overlay h1 {
   font-size: 28px;
 }
 
-header p {
-  margin-top: 10px;
-  opacity: 0.9;
+.overlay p {
+  font-size: 14px;
 }
 
 /* CARD */
@@ -59,28 +81,6 @@ header p {
   text-decoration: none;
   font-weight: bold;
   margin-top: 15px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Ripple effect */
-.btn:after {
-  content: "";
-  position: absolute;
-  background: rgba(255,255,255,0.5);
-  width: 100px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  border-radius: 50%;
-  opacity: 0;
-  transition: 0.6s;
-}
-
-.btn:active:after {
-  transform: translate(-50%, -50%) scale(2);
-  opacity: 1;
 }
 
 /* SERVICES */
@@ -91,24 +91,21 @@ header p {
   text-align: center;
 }
 
-.services div {
+/* TESTIMONI */
+.testimoni {
   font-size: 14px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9fafc;
+  border-radius: 10px;
 }
 
-/* FORM */
-iframe {
-  width: 100%;
-  height: 700px;
-  border: none;
-  border-radius: 12px;
-}
-
-/* FLOATING WA BUTTON */
-.wa {
+/* TELEGRAM FLOAT */
+.tg {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #25D366;
+  background: #0088cc;
   color: white;
   padding: 15px 18px;
   border-radius: 50%;
@@ -118,14 +115,9 @@ iframe {
   animation: bounce 2s infinite;
 }
 
-/* ANIMATIONS */
+/* ANIMASI */
 @keyframes fadeUp {
   from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes fadeDown {
-  from {opacity: 0; transform: translateY(-20px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
@@ -139,7 +131,7 @@ iframe {
 
 <body>
 
-<!-- HERO IMAGE -->
+<!-- HERO -->
 <div class="hero">
   <img src="panggilaja.png" alt="Jasa Panggilan">
   <div class="overlay">
@@ -147,7 +139,8 @@ iframe {
     <p>Satu Panggilan, Semua Beres! 📲</p>
   </div>
 </div>
-  
+
+<!-- LAYANAN -->
 <div class="card">
   <h2>🧾 Layanan Kami</h2>
   <div class="services">
@@ -155,19 +148,34 @@ iframe {
     <div>🧹 Cleaning</div>
     <div>🚗 Antar Jemput</div>
   </div>
-<div class="card" id="form">
-  <h2>📝 Isi Form Pemesanan</h2>
-  <!-- GANTI LINK GOOGLE FORM -->
-  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfHQJDwIFz75NqH_h_1FOMColltwoN6j0RC_S6n6YflJE3uiQ/viewform" target="_blank">Isi Form Sekarang
-</a>
 </div>
 
-<div class="card" id="form">
-  <h2>💬 Respon Cepat</h2>
-  <!-- GANTI LINK GOOGLE FORM -->
-  <a class="btn" href="https://t.me/jasa_pro" target="_blank">Chat Telegram
-</a>
+<!-- FORM -->
+<div class="card">
+  <h2>📝 Pesan Sekarang</h2>
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfHQJDwIFz75NqH_h_1FOMColltwoN6j0RC_S6n6YflJE3uiQ/viewform" target="_blank">
+    Isi Form Sekarang
+  </a>
 </div>
+
+<!-- TELEGRAM -->
+<div class="card">
+  <h2>💬 Respon Cepat</h2>
+  <a class="btn" href="https://t.me/jasa_pro" target="_blank">
+    Chat via Telegram
+  </a>
+</div>
+
+<!-- TESTIMONI -->
+<div class="card">
+  <h2>⭐ Testimoni Pelanggan</h2>
+  <a class="btn" href="LINK_FORM_TESTIMONI_KAMU" target="_blank">
+    Kirim Testimoni
+  </a>
+</div>
+
+<!-- FLOAT TELEGRAM -->
+<a class="tg" href="https://t.me/jasa_pro" target="_blank">✈️</a>
 
 </body>
 </html>
